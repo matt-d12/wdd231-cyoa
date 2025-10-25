@@ -1,0 +1,30 @@
+header {
+    display: flex;
+    font-family: var(--font-heading);
+    justify-content: space-between;
+    background-color: var(--color-green-light);
+    color: black;
+    align-items: center;
+
+}
+
+a {
+    color: black;
+}
+
+.logo {
+    text-decoration: none;
+    display: block;
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
+    display: block;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
