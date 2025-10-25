@@ -5,7 +5,7 @@ header {
     background-color: var(--color-green-light);
     color: black;
     align-items: center;
-
+    padding: 10px 10px;
 }
 
 a {
@@ -14,7 +14,12 @@ a {
 
 .logo {
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .logo img {
