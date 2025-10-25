@@ -20,6 +20,7 @@
     </header>
 
     <main>
+        <!-- This is for the history box on the side showing your choices -->
         <h1>History</h1>
         <section class="history-list">
             <div class="choice">
@@ -30,10 +31,34 @@
                 <h2>Choice B</h2>
                 <p>Description of Choice B the user made and its outcome.</p>
             </div>
+            <div class="choice">
+                <h2>Choice C</h2>
+                <p>Description of Choice C the user made and its outcome.</p>
+            </div>
             <!-- Add more choices in JS to be dynamic and grow -->
         </section>
 
+        <!-- This is for the game container box. To be populated from JS -->
+        <section class="game-container">
+            <h1>Survive. Good luck!</h1>
+            <div class="game-text">
+                <p>You find yourself in a dark forest with two paths ahead. One path leads to a river, the other to a mountain. Which path do you choose?</p>
+            </div>
+        </section>
 
+        <!-- This is for the choices buttons below the game container -->
+        <div class="choices">
+            <button class="choice-btn">
+                <span class="choice-number">1</span>
+            </button>
+            <button class="choice-btn">
+                <span class="choice-number">2</span>
+            </button>
+            <button class="choice-btn">
+                <span class="choice-number">3</span>
+            </button>
+        </div>
+    </main>
 
     <footer>
         <p>Last Updated: 10/25/25</p>   <!-- Add check for github commits? -->
