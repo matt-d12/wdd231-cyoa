@@ -6,6 +6,8 @@ header {
     color: black;
     align-items: center;
     padding: 10px 10px;
+    margin-bottom: 50px;
+    border: 2px solid var(--color-green-dark);
 }
 
 a {
@@ -29,7 +31,8 @@ a {
 }
 
 
-nav a {
+.nav1 a {
     text-decoration: none;
     color: black;
+    margin-right: 10px;
 }
