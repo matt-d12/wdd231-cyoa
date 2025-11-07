@@ -1,0 +1,74 @@
+{
+    "forest": {
+        "title": "Forest Awakening",
+        "text": "You find yourself in a dense forest. Some supplies lie next to you. What do you do?",
+        "choices": [
+            { "text": "Pick up a stick", "next": "settlement", "addItem": "stick" },
+            { "text": "Pick up a nearby rope", "next": "settlement", "addItem": "rope" },
+            { "text": "Pick up the knife", "next": "settlement", "addItem": "knife" }
+        ]
+    },
+
+    "settlement": {
+        "title": "The Village",
+        "text": "You discover a small empty village ahead. It's earily quiet. What do you do?",
+        "choices": [
+            { "text": "Sneak in quietly", "next": "explore" },
+            { "text": "Scout from a rock", "next": "explore" },
+            { "text": "Call out loudly", "next": "explore" }
+        ]
+    },
+
+    "explore": {
+        "title": "Explore the Buildings",
+        "text": "You come across three building: a red house, a food hall, and a small blue house. What do you do?",
+        "choices": [
+            { "text": "Enter the red house", "next": "wolf" },
+            { "text": "Search the food hall", "next": "wolf", "addItem": "food" },
+            { "text": "Check the small blue house", "next": "wolf" }
+        ]
+    },
+
+    "wolf": {
+        "title": "A Wolf Appears!",
+        "text": "A loud growl breaks the silence. A wolf has emerged not even 10 yards in front of you. What do you do?",
+        "choices": [
+            { "text": "Fight", "next": "fight" },
+            { "text": "Run", "next": "road" },
+            { "text": "Hide", "next": "hide" }
+        ]
+    },
+
+    "fight": {
+        "title": "Stand Your Ground",
+        "text": "You stand your ground and prepare to defend yourself",
+        "choices": [
+            { "text": "Sneak in quietly", "next": "explore" },
+            { "text": "Scout from a rock", "next": "explore" },
+            { "text": "Call out loudly", "next": "explore" }
+        ]
+    },
+
+    "road": {
+        "title": "The Small Settlement",
+        "text": "You discover a small empty village ahead. It's earily quiet. What do you do?",
+        "choices": [
+            { "text": "Sneak in quietly", "next": "explore" },
+            { "text": "Scout from a rock", "next": "explore" },
+            { "text": "Call out loudly", "next": "explore" }
+        ]
+    },
+
+    "win": {
+        "title": "You Survied!",
+        "text": "You reach a new settlement where you are welcomed at the gate. Congratulations!",
+        "choices": []
+    },
+
+    "lose": {
+        "title": "Game Over",
+        "text": "Survival was not meant to be. Better luck next time!",
+        "choices": []
+    }
+
+}
