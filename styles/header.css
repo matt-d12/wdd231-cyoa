@@ -36,3 +36,50 @@ a {
     color: black;
     margin-right: 10px;
 }
+
+
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav1 {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-green-light);
+        border: 2px solid var(--color-green-dark);
+        padding: 10px;
+    }
+
+    .nav1.show {
+        display: block;
+    }
+
+    .nav1 a {
+        display: block;
+        padding: 10px;
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    header {
+        position: relative;
+    }
+
+
+
+
+}

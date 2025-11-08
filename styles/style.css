@@ -73,6 +73,44 @@ main h1 {
     padding: 15px 30px;
     cursor: pointer;
     font-size: 1.5rem;
-    min-width: 200px;
     border-radius: 5px;
+    min-width: 200px;
+    transition: all 0.25s ease-in-out;
+}
+
+.choice-btn:hover {
+    border: 1px solid gray;
+    background-color: var(--color-green-light);
+    color: black;
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    .history-list {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .game-container {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .choices {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .choice-btn {
+        min-width: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .choices {
+        flex-direction: column;
+    }
+    .choice-btn {
+        min-width: 50px;
+        
+    }
 }
