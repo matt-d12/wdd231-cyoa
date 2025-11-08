@@ -11,7 +11,7 @@
 
     "settlement": {
         "title": "The Village",
-        "text": "You discover a small empty village ahead. It's earily quiet. What do you do?",
+        "text": "You discover a small empty village ahead. It's eerily quiet. What do you do?",
         "choices": [
             { "text": "Sneak in quietly", "next": "explore" },
             { "text": "Scout from a rock", "next": "explore" },

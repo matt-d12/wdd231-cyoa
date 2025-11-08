@@ -8,19 +8,40 @@ async function loadPaths() {
     return data;
 }
 
+
+function addHistoryEntry (choiceText) {
+    const historyList = document.querySelector('.history-list');
+    if (!historyList) return;
+
+    const count = historyList.querySelectorAll('.choice').length + 1;
+
+    const entry = document.createElement('div');
+    entry.className = 'choice';
+    entry.innerHTML = `
+    <h2>Choice ${count}</h2>
+    <p>${choiceText}</p>
+    `;
+    historyList.appendChild(entry);
+}
+
 //Update screen with current scene
 function displayScene(paths, currentId) {
     //Get current scene data and return ID
     const scene = paths[currentId];
+    console.log('Current Scene:', scene);  // Debug log
+    console.log('Scene title:', scene.title);  // Debug log
+    console.log('Scene choices:', scene.choices);  // Debug log
     //Select HTML elements to update
     const gameContainer = document.querySelector('.game-container');
+    console.log('Game container found:', gameContainer); // Debug log
     const choiceButtons = document.querySelectorAll('.choice-btn');
+    console.log('Choice buttons found:', choiceButtons); // Debug log
 
     //Build main content section
     let content = `
         <h1>${scene.title}</h1>
         <div class="game-text">
-        <p>${scene.text}</p>
+        <h3>${scene.text}</h3>
     `;
 
 
@@ -28,7 +49,7 @@ function displayScene(paths, currentId) {
     if (scene.choices && scene.choices.length > 0) {
         content += `<ul>`;
         scene.choices.forEach((choice, index) => {
-            content += `<li><strong>Option ${index + 1}<strong> - ${choice.text}</li>`;
+            content += `<li><strong>Option ${index + 1}</strong> - ${choice.text}</li>`;
         });
         content += `</ul>`;
     } else {
@@ -40,6 +61,7 @@ function displayScene(paths, currentId) {
     content += `</div>`;
 
     //Inject content into game container
+    console.log('Content to be inserted:', content);  // Debug log
     gameContainer.innerHTML = content;
 
     //Update button behaviors
@@ -49,7 +71,10 @@ function displayScene(paths, currentId) {
         //If valid choice then makie it clickable, if not than disable
         if (choice) {
             button.style.display = 'inline-block';
-            button.onclick = () => displayScene(paths, choice.next);
+            button.onclick = () => {
+                addHistoryEntry(choice.text);
+                displayScene(paths, choice.next);
+            }
         } else {
             button.style.display = 'none';
         }

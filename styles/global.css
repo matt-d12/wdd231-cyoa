@@ -9,7 +9,21 @@
 h1, h2, h3 {
     font-family: var(--font-heading);
     color: white;
+}
+
+h1 {
+    font-size: 50px;
     color: var(--color-brown-trunk);
+}
+
+h2 {
+    font-size: 30px;
+    color: var(--color-brown-trunk);
+}
+
+h3 {
+    font-size: 20px;
+    color: var(--color-green-light);
 }
 
 p {
