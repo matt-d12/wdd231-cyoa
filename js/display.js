@@ -13,6 +13,12 @@ export function displayScene(paths, currentId) {
     const choiceButtons = document.querySelectorAll('.choice-btn');
     console.log('Choice buttons found:', choiceButtons); // Debug log
 
+
+    if (!gameContainer) {
+        // nothing to render on this page
+        return;
+    }
+
     //Build main content section
     let content = `
         <h1>${scene.title}</h1>
@@ -56,3 +62,5 @@ export function displayScene(paths, currentId) {
         }
     });
 }
+
+
