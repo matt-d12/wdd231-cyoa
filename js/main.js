@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (params.has('name')) {
         if (userInputContainer) userInputContainer.style.display = 'none';
         displayScene(paths, "forest");
+
+         //Thank you message
+        const thankYouDiv = document.getElementById('thank-you-message');
+        if (thankYouDiv) {
+            thankYouDiv.textContent = `Thank you ${userName} for playing the game!`;
+        }
     } else if (userForm) {
         userForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -36,26 +42,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //Update nav links based off name parameter
     const contribLink = document.getElementById('contrib-link');
-    if (contribLink) {
-        contribLink.href = `contributions.html?name=${encodeURIComponent(userName)}`;
-    }
     const homeLink = document.querySelector('a.logo, nav.nav1 a[href=\"index.html\"]');
-    if (homeLink) {
-        homeLink.href = `index.html?name=${encodeURIComponent(userName)}`;
-    }
 
-    document.querySelector('.menu-toggle').addEventListener('click', () => {
-        document.querySelector('.nav1').classList.toggle('show');
-    });
-
-    //Thank you message
-    const thankYouDiv = document.getElementById('thank-you-message');
-    if (thankYouDiv) {
-        const userName = params.get('name');
-        if (userName) {
-            thankYouDiv.textContent = `Thank you ${userName} for playing the game!`;
+    if (userName) {
+        if (contribLink) {
+            contribLink.href = `contributions.html?name=${encodeURIComponent(userName)}`;
         }
-    }
+        if (homeLink) {
+            homeLink.href = `index.html?name=${encodeURIComponent(userName)}`;
+        }
+
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav1').classList.toggle('show');
+        });
+}
+
+   
+
 });
 
 
