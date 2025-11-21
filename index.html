@@ -17,7 +17,7 @@
         <button class="menu-toggle">☰</button>
         <nav class="nav1">
             <a href="index.html">Home</a>
-            <a href="contributions.html">Contributions</a>
+            <a id="contrib-link" href="contributions.html">Contributions</a>
         </nav>
     </header>
 
@@ -31,9 +31,17 @@
 
         <!-- This is for the game container box. To be populated from JS -->
         <section class="game-container">
-            <h1>Survive. Good luck!</h1>
+            <div id="user-input-container">
+                <form id="user-form">
+                    <label for="user-input">Enter your name:</label>
+                    <input type="text" id="user-input" name="user-input" required/>
+                    <button id="start-button">Start Game</button>
+                </form>
+            </div>
+            <h1>Please enter your name above</h1>
             <div class="game-text">
-                <p>You find yourself in a dark forest with two paths ahead. One path leads to a river, the other to a mountain. Which path do you choose?</p>
+                <p>This is a Choose Your Own Adventure Game. The choice history of will show the major decisions made.</p>
+                <p>Below you will see 3 buttons that you will use to make your choice. Best of luck!</p>
                 <div class="choice1">1. </div>
                 <div class="choice2">2. </div>
                 <div class="choice3">3. </div>
