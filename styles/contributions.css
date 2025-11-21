@@ -25,6 +25,17 @@ main {
     flex-grow: 1;
     color: white;
     flex-direction: row;
+    text-align: center;
+}
+main h1 {
+    margin-right: 50px;
+}
+
+#thank-you-message {
+    display: block;
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 
@@ -32,6 +43,9 @@ main {
 @media screen and (max-width: 800px) {
     main {
         grid-template-columns: 1fr;
+    }
+    main h1 {
+        margin-right: 0px;
     }
 }
 
