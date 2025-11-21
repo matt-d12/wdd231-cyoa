@@ -56,6 +56,8 @@ li {
 main h1 {
 }
 
+
+
 .game-container {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -64,7 +66,49 @@ main h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    text-align: center;
 }
+
+.game-container h1 {
+    padding: 50px 100px;
+}
+
+
+
+
+#user-form {
+    margin: 20px auto;
+}
+
+#user-form label {
+    color: white;
+    font-size: 1em;
+}
+
+#user-form input {
+    color: black;
+    font-size: 1em;
+}
+
+#user-form button {
+    color: white;
+    border: 1px solid white;
+    transition: all 0.25s ease-in-out;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: var(--color-green-dark);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#user-form button:hover {
+    color: black;
+    background-color: var(--color-green-light);
+    border: 1px solid gray;
+
+}
+
+
 
 .choices {
     grid-column: 2 / 3;

@@ -6,10 +6,6 @@
 
 
 
-main {
-    padding: 200px;
-}
-
 
 body {
     background-color: black;
@@ -32,6 +28,7 @@ main {
 }
 
 
+
 @media screen and (max-width: 800px) {
     main {
         grid-template-columns: 1fr;
@@ -39,13 +36,6 @@ main {
 }
 
 @media screen and (max-width: 500px) {
-    .choices {
-        flex-direction: column;
-    }
-    .choice-btn {
-        min-width: 50px;
-        
-    }
     main {
         flex-direction: column;
     }
