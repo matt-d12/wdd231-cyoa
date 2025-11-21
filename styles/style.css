@@ -82,12 +82,14 @@ main h1 {
 
 #user-form label {
     color: white;
-    font-size: 1em;
+    font-size: 20px;
+    margin-right: 5px;
 }
 
 #user-form input {
     color: black;
-    font-size: 1em;
+    font-size: 20px;
+    margin-right: 20px;
 }
 
 #user-form button {
@@ -95,7 +97,7 @@ main h1 {
     border: 1px solid white;
     transition: all 0.25s ease-in-out;
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 15px;
     background-color: var(--color-green-dark);
     cursor: pointer;
     border-radius: 5px;
@@ -156,6 +158,22 @@ main h1 {
     .choice-btn {
         min-width: 100px;
     }
+    #user-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    #user-form label {
+ 
+    }
+    #user-form input {
+        margin-right: 0;
+    }
+    #user-form button {
+        margin-top: 20px;
+    }
+    
 }
 
 @media screen and (max-width: 500px) {
