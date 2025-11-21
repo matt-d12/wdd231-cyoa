@@ -40,6 +40,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+
+    const menuBtn = document.querySelector('.menu-toggle');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            const nav = document.querySelector('.nav1');
+            if (nav) nav.classList.toggle('show');
+        });
+    }
+
     //Update nav links based off name parameter
     const contribLink = document.getElementById('contrib-link');
     const homeLink = document.querySelector('a.logo, nav.nav1 a[href=\"index.html\"]');
@@ -51,10 +60,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (homeLink) {
             homeLink.href = `index.html?name=${encodeURIComponent(userName)}`;
         }
-
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('.nav1').classList.toggle('show');
-        });
 }
 
    
