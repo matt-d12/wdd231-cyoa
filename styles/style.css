@@ -110,12 +110,16 @@ main h1 {
 
 }
 
+#player_name {
+    display: none;
+    color: var(--color-green-light)
+}
 
 
 .choices {
+    display: none;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 10px; 
@@ -139,9 +143,14 @@ main h1 {
     color: black;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     main {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto; 
+    }
+    main h1 {
+        text-align: center;
+        max-height: fit-content;
     }
     .history-list {
         grid-column: 1;
@@ -156,7 +165,8 @@ main h1 {
         grid-row: 3;
     }
     .choice-btn {
-        min-width: 100px;
+        min-width: 0;
+        width: 100%;
     }
     #user-form {
         display: flex;
@@ -181,7 +191,32 @@ main h1 {
         flex-direction: column;
     }
     .choice-btn {
-        min-width: 50px;
-        
+        min-width: 0;
+        width: 100%;
     }
+    main h1 {
+        font-size: 10vw;
+    }
+    .game-container h1 {
+        padding: 5vw 2vw;
+    }
+    .history-list {
+        padding: 5vw 2vw;
+    }
+    main {
+        padding: 0px 5px;
+    }
+    #user-form {
+        width: 100%;
+        margin: 0;
+    }
+    #user-form label {
+        margin-right: 0;
+        padding: 0;
+    }
+    #user-form input {
+        min-width: 0;
+        width: 50%;
+    }
+
 }

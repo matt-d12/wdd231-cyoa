@@ -1,7 +1,8 @@
 import { addHistoryEntry } from './history.js'
 
 //Update screen with current scene
-export function displayScene(paths, currentId) {
+export function displayScene(paths, currentId, playerName) {
+    console.log('playerName received:', playerName);
     //Get current scene data and return ID
     const scene = paths[currentId];
     console.log('Current Scene:', scene);  // Debug log
@@ -21,6 +22,7 @@ export function displayScene(paths, currentId) {
 
     //Build main content section
     let content = `
+        <h2 id="player_name" style="display: block;">Player: ${playerName}</h2>
         <h1>${scene.title}</h1>
         <div class="game-text">
         <h3>${scene.text}</h3>
@@ -55,7 +57,7 @@ export function displayScene(paths, currentId) {
             button.style.display = 'inline-block';
             button.onclick = () => {
                 addHistoryEntry(choice.text);
-                displayScene(paths, choice.next);
+                displayScene(paths, choice.next, playerName);
             }
         } else {
             button.style.display = 'none';

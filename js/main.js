@@ -21,7 +21,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     //Start game only if name is present in URL
     if (params.has('name')) {
         if (userInputContainer) userInputContainer.style.display = 'none';
-        displayScene(paths, "forest");
+        displayScene(paths, "forest", userName);
+
+        const choiceButtonsContainer = document.querySelector('.choices');
+        if (choiceButtonsContainer) choiceButtonsContainer.style.display = 'flex'
+
+        const playerName = document.querySelector('#player_name');
+        if (playerName) {playerName.textContent = `Player: ${userName}`;
+        playerName.style.display = 'block';
+        }
 
          //Thank you message
         const thankYouDiv = document.getElementById('thank-you-message');
