@@ -143,6 +143,27 @@ main h1 {
     color: black;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 900px) {
     main {
         grid-template-columns: 1fr;
