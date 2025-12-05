@@ -49,6 +49,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
 
+    // contact us button
+    const form = document.getElementById('form1');
+    const contactUs = document.getElementById('contact_us');
+    const nameInput = document.getElementById('full_name');
+    if (contactUs && form && nameInput) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = nameInput.value.trim() || 'Friend';
+            contactUs.textContent = `Thank you ${name}! We will be in touch shortly.`;
+            form.reset();
+        });
+    }
+
+
     const menuBtn = document.querySelector('.menu-toggle');
     if (menuBtn) {
         menuBtn.addEventListener('click', () => {
