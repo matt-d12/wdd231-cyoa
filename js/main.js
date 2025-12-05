@@ -53,7 +53,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (menuBtn) {
         menuBtn.addEventListener('click', () => {
             const nav = document.querySelector('.nav1');
-            if (nav) nav.classList.toggle('show');
+            if (nav) {
+                if (nav.classList.contains('show')) {
+    nav.classList.remove('show');
+    void nav.offsetHeight;
+    nav.classList.add('hide');
+} else {
+    nav.classList.remove('hide');
+    void nav.offsetHeight;
+    nav.classList.add('show');
+}
+            }
         });
     }
 
