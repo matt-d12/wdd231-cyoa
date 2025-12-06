@@ -29,16 +29,31 @@ export function displayScene(paths, currentId, playerName) {
     `;
 
 
-    //List out scene choices
-    if (scene.choices && scene.choices.length > 0) {
+    //Read inventory from localStorage so we can apply requirements and add items
+    const inventory = JSON.parse(localStorage.getItem('inventory') || '[]');
+
+    //List out scene choices (only those allowed by inventory requirements)
+    const visibleChoices = (scene.choices || []).filter(choice => {
+        //If choice requires an item, only show if player has it
+        if (choice.requireItem) {
+            return inventory.includes(choice.requireItem);
+        }
+        //If choice disallows some items, hide it when player has any of them
+        if (choice.requireItemNone && Array.isArray(choice.requireItemNone)) {
+            return !choice.requireItemNone.some(req => inventory.includes(req));
+        }
+        return true;
+    });
+
+    if (visibleChoices.length > 0) {
         content += `<ul>`;
-        scene.choices.forEach((choice, index) => {
+        visibleChoices.forEach((choice, index) => {
             content += `<li><strong>Option ${index + 1}</strong> - ${choice.text}</li>`;
         });
         content += `</ul>`;
     } else {
-        //If no choices then game is over and buttons do nothing
-        content += `<p><em>The End.</em></p>`;
+        //If no visible choices then game is over or blocked
+        content += `<p><em>No available options. The End.</em></p>`;
     }
 
     //Close game text div
@@ -48,19 +63,24 @@ export function displayScene(paths, currentId, playerName) {
     console.log('Content to be inserted:', content);  // Debug log
     gameContainer.innerHTML = content;
 
-    //Update button behaviors
+    //Update button behaviors - map visibleChoices to the fixed set of buttons
     choiceButtons.forEach((button, index) => {
-        //Get choice that matches button index
-        const choice = scene.choices ? scene.choices[index] : null;
-        //If valid choice then makie it clickable, if not than disable
+        const choice = visibleChoices[index] || null;
         if (choice) {
             button.style.display = 'inline-block';
             button.onclick = () => {
+                //If taking this choice grants an item, add it to inventory
+                const inv = JSON.parse(localStorage.getItem('inventory') || '[]');
+                if (choice.addItem && !inv.includes(choice.addItem)) {
+                    inv.push(choice.addItem);
+                    localStorage.setItem('inventory', JSON.stringify(inv));
+                }
                 addHistoryEntry(choice.text);
                 displayScene(paths, choice.next, playerName);
             }
         } else {
             button.style.display = 'none';
+            button.onclick = null;
         }
     });
 }

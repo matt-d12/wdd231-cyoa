@@ -1,27 +1,27 @@
 {
     "forest": {
-        "title": "Forest Awakening",
-        "text": "You find yourself in a dense forest. Some supplies lie next to you. What do you do?",
+        "title": "The Forest",
+        "text": "You awaken in a dark forest. A few supplies lie near you.",
         "choices": [
-            { "text": "Pick up a stick", "next": "settlement", "addItem": "stick" },
-            { "text": "Pick up a nearby rope", "next": "settlement", "addItem": "rope" },
-            { "text": "Pick up the knife", "next": "settlement", "addItem": "knife" }
+            { "text": "Pick up the large stick", "next": "settlement", "addItem": "stick" },
+            { "text": "Pick up a short rope", "next": "settlement", "addItem": "rope" },
+            { "text": "Pick up the pocket knife", "next": "settlement", "addItem": "knife" }
         ]
     },
 
     "settlement": {
         "title": "The Village",
-        "text": "You discover a small empty village ahead. It's eerily quiet. What do you do?",
+        "text": "After leaving the forest, you see a small settlement ahead. It's eerily quiet. What do you do?",
         "choices": [
-            { "text": "Sneak in", "next": "explore" },
-            { "text": "Climb rock to scout", "next": "explore" },
-            { "text": "Call out", "next": "explore" }
+            { "text": "Sneak in through a break in the walls", "next": "explore" },
+            { "text": "Climb a nearby rock to scout it out", "next": "explore" },
+            { "text": "Call out and hope for a response", "next": "explore" }
         ]
     },
 
     "explore": {
         "title": "Explore Buildings",
-        "text": "You find three buildings: a red house, a food hall, and a small blue house. Where do you go?",
+        "text": "The village is eerily quiet. As you wander, you find three buildings: a red house, a food hall, and a small blue house. What do you check first?",
         "choices": [
             { "text": "Enter the red house", "next": "wolf" },
             { "text": "Search the food hall", "next": "wolf", "addItem": "food" },
@@ -30,8 +30,8 @@
     },
 
     "wolf": {
-        "title": "A Wolf Appears!",
-        "text": "A loud growl breaks the silence. A wolf has emerged not even 10 yards in front of you. What do you do?",
+        "title": "Wolf",
+        "text": "As you enter, a loud growl breaks the silence. A wolf appears in front of you with a menacing growl.",
         "choices": [
             { "text": "Fight", "next": "fight" },
             { "text": "Run", "next": "road" },
@@ -40,27 +40,37 @@
     },
 
     "fight": {
-        "title": "Stand Your Ground",
-        "text": "You stand your ground and prepare to defend yourself",
+        "title": "fight",
+        "text": "You decide to stand your ground and fight the wolf.",
         "choices": [
-            { "text": "If you have food", "next": "road", "requireItem": "food" },
-            { "text": "If you do not have food", "next": "lose", "requireItemNone": ["food"] }
+            { "text": "Brandish your new found pocket knife", "next": "road", "requireItem": "knife" },
+            { "text": "Grab your walking stick with both hands and take your best batters stance", "next": "road", "requireItem": "stick" },
+            { "text": "You have nothing to fight with, imitate a boxer's stance and begin praying", "next": "lose", "requireItemNone": ["knife", "stick"] }
+        ]
+    },
+
+    "hide": {
+        "title": "hide",
+        "text": "You try to hide and wait for the wolf to pass.",
+        "choices": [
+            { "text": "The wolf keeps getting closer, smelling the food you grabbed from the food hall", "next": "lose", "requireItem": "food" },
+            { "text": "You steady your breath and since you have no food, wait for the wolf to lose interest and leave", "next": "win", "requireItemNone": ["food"] }
         ]
     },
 
     "road": {
         "title": "The Road",
-        "text": "You reach a road. Where do you go?",
+        "text": "You struggle to fight off the wolf but manage to scare it off. Good thing you grabbed a weapon. You soon wander out onto a road. Where do you go?",
         "choices": [
-            { "text": "Back to forest", "next": "lose" },
-            { "text": "River", "next": "win" },
-            { "text": "Cross bridge", "next": "win" }
+            { "text": "Head back into forest", "next": "lose" },
+            { "text": "Try crossing the nearby river", "next": "win" },
+            { "text": "Take the bridge over the river", "next": "win" }
         ]
     },
 
     "win": {
-        "title": "New Settlement - WIN",
-        "text": "You reach a new settlement and are welcomed. You survived!",
+        "title": "You survived!",
+        "text": "You continue on and notice a new settlement, hearing the distant sound of people. You survived!",
         "choices": []
     },
 
