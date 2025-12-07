@@ -15,7 +15,7 @@
         "choices": [
             { "text": "Sneak in through a break in the walls", "next": "explore" },
             { "text": "Climb a nearby rock to scout it out", "next": "explore" },
-            { "text": "Call out and hope for a response", "next": "explore" }
+            { "text": "Call out and hope for a response", "next": "wolf" }
         ]
     },
 
@@ -40,7 +40,7 @@
     },
 
     "fight": {
-        "title": "fight",
+        "title": "Fight",
         "text": "You decide to stand your ground and fight the wolf.",
         "choices": [
             { "text": "Brandish your new found pocket knife", "next": "road", "requireItem": "knife" },
@@ -54,13 +54,13 @@
         "text": "You try to hide and wait for the wolf to pass.",
         "choices": [
             { "text": "The wolf keeps getting closer, smelling the food you grabbed from the food hall", "next": "lose", "requireItem": "food" },
-            { "text": "You steady your breath and since you have no food, wait for the wolf to lose interest and leave", "next": "win", "requireItemNone": ["food"] }
+            { "text": "You steady your breath and since you have no food, the wolf to loses interest and leaves", "next": "win", "requireItemNone": ["food"] }
         ]
     },
 
     "road": {
         "title": "The Road",
-        "text": "You struggle to fight off the wolf but manage to scare it off. Good thing you grabbed a weapon. You soon wander out onto a road. Where do you go?",
+        "text": "You managed to survive the encounter with the wolf. You soon wander out onto a road. Where do you go?",
         "choices": [
             { "text": "Head back into forest", "next": "lose" },
             { "text": "Try crossing the nearby river", "next": "win" },
