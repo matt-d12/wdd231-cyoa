@@ -63,6 +63,31 @@ export function displayScene(paths, currentId, playerName) {
     console.log('Content to be inserted:', content);  // Debug log
     gameContainer.innerHTML = content;
 
+    //Retart button if no choices left (after win and lose scenarios)
+    if (!scene.choices || scene.choices.length === 0) {
+        const restartDiv = document.createElement('div');
+        restartDiv.className = 'end-actions';
+        restartDiv.innerHTML = `<button id="restart-btn">Restart Game</button>`;
+        gameContainer.appendChild(restartDiv);
+
+        const restartBtn = document.getElementById('restart-btn');
+        if (restartBtn) {
+            restartBtn.addEventListener('click', () => {
+                //Remove localStorage for player data
+                localStorage.removeItem('playerName');
+                localStorage.removeItem('inventory');
+                //Clear history entries
+                const historyList = document.querySelector('.history-list');
+                if (historyList) historyList.innerHTML = '<h1>History</h1>';
+                //Remove name param from URL and reload
+                const url = new URL(window.location.href);
+                url.searchParams.delete('name');
+                //Navigate to clean URL (reloads the page)
+                window.location.href = url.pathname + url.search + url.hash;
+            });
+        }
+    }
+
     //Update button behaviors - map visibleChoices to the fixed set of buttons
     choiceButtons.forEach((button, index) => {
         const choice = visibleChoices[index] || null;
