@@ -150,7 +150,21 @@ main h1 {
 
 
 
-
+#restart-btn {
+    color: white;
+    border: 1px solid white;
+    transition: all 0.25s ease-in-out;
+    padding: 10px 20px;
+    font-size: 15px;
+    background-color: var(--color-green-dark);
+    cursor: pointer;
+    border-radius: 5px;
+}
+#restart-btn:hover {
+    color: black;
+    background-color: var(--color-green-light);
+    border: 1px solid gray;
+}
 
 
 
