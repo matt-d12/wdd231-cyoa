@@ -53,7 +53,7 @@ export function displayScene(paths, currentId, playerName) {
         content += `</ul>`;
     } else {
         //If no visible choices then game is over or blocked
-        content += `<p><em>No available options. The End.</em></p>`;
+        content += `<p><em>Thanks for playing! Hit the 'Restart Game' button to play again.</em></p>`;
     }
 
     //Close game text div

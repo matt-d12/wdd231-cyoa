@@ -1,5 +1,6 @@
 import {loadPaths} from './paths.js';
 import {displayScene, setupRestartButton} from './display.js'
+import { addHistoryEntry } from './history.js'
 
 //Global variable for storing player inventory
 let inventory = [];
@@ -38,7 +39,43 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('inventory', JSON.stringify(inventory));
         }
         if (userInputContainer) userInputContainer.style.display = 'none';
-        displayScene(paths, "forest", userName);
+
+        //If there is a stored choiceHistory, replay it to resume state
+        const storedChoiceHistory = JSON.parse(localStorage.getItem('choiceHistory') || '[]');
+        let currentId = 'forest';
+        // Clear any existing history UI
+        const historyList = document.querySelector('.history-list');
+        if (historyList) historyList.innerHTML = '<h1>History</h1>';
+
+        if (storedChoiceHistory.length > 0) {
+            //Replay choices to rebuild inventory and compute current scene
+            for (const choiceNum of storedChoiceHistory) {
+                const scene = paths[currentId];
+                if (!scene) break;
+                //Compute visible choices same as display logic
+                const visibleChoices = (scene.choices || []).filter(choice => {
+                    if (choice.requireItem) return inventory.includes(choice.requireItem);
+                    if (choice.requireItemNone && Array.isArray(choice.requireItemNone)) return !choice.requireItemNone.some(req => inventory.includes(req));
+                    return true;
+                });
+                //ChoiceNum is 1-based; pick matching visible choice
+                let chosen = visibleChoices[choiceNum - 1] || (scene.choices && scene.choices[choiceNum - 1]);
+                if (!chosen) break;
+                // apply addItem if present
+                if (chosen.addItem && !inventory.includes(chosen.addItem)) {
+                    inventory.push(chosen.addItem);
+                    localStorage.setItem('inventory', JSON.stringify(inventory));
+                }
+                //Add to history UI
+                addHistoryEntry(chosen.text);
+                //Advance to next scene
+                currentId = chosen.next;
+            }
+            displayScene(paths, currentId, userName);
+        } else {
+            //No history: start at forest
+            displayScene(paths, "forest", userName);
+        }
 
         const choiceButtonsContainer = document.querySelector('.choices');
         if (choiceButtonsContainer) choiceButtonsContainer.style.display = 'flex'
