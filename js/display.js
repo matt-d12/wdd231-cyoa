@@ -96,7 +96,8 @@ export function displayScene(paths, currentId, playerName) {
     // Wrap in a functino to make sure it only creates the button once
 export function setupRestartButton() {
     const parentContainer = document.querySelector('main');
-    if (!parentContainer) {
+    const gameContainer = document.querySelector('.game-container');
+    if (!gameContainer) {
         return; // Nothing to do if container isn't found
     }
 
