@@ -91,7 +91,7 @@ export function displayScene(paths, currentId, playerName) {
 
     // Wrap in a functino to make sure it only creates the button once
 export function setupRestartButton() {
-    const parentContainer = document.body;
+    const parentContainer = document.querySelector('main');
     if (!parentContainer) {
         return; // Nothing to do if container isn't found
     }
@@ -105,8 +105,7 @@ export function setupRestartButton() {
     restartDiv.className = 'restart-div';
     restartDiv.innerHTML = `<button id="restart-btn">Restart Game</button>`;
 
-    const lastChild = parentContainer.lastElementChild;
-    parentContainer.insertBefore(restartDiv, lastChild);
+    parentContainer.appendChild(restartDiv);
 
     const restartBtn = document.getElementById('restart-btn');
     if (restartBtn) {
