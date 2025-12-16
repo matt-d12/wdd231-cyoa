@@ -1,5 +1,5 @@
 import {loadPaths} from './paths.js';
-import {displayScene} from './display.js'
+import {displayScene, setupRestartButton} from './display.js'
 
 //Global variable for storing player inventory
 let inventory = [];
@@ -16,11 +16,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     //Load or initialize inventory from localStorage
     let inventory = JSON.parse(localStorage.getItem('inventory') || '[]');
 
+
+
     //Determine effective userName:
     //Check URL param 1st, then storedName, if neither null
     const userName = urlName || storedName || null;
 
     const paths = await loadPaths();
+
+    
+    //Add restart button 
+    setupRestartButton();
 
     //Check localStorage is in sync, especially if used URL name
     if (userName) {

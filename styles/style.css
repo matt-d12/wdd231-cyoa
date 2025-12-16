@@ -147,7 +147,10 @@ main h1 {
 
 
 
+.restart-div {
 
+
+}
 
 
 #restart-btn {
@@ -159,6 +162,8 @@ main h1 {
     background-color: var(--color-green-dark);
     cursor: pointer;
     border-radius: 5px;
+    align-content: center;
+    justify-content: center;
 }
 #restart-btn:hover {
     color: black;
