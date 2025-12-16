@@ -78,6 +78,10 @@ export function displayScene(paths, currentId, playerName) {
                     inv.push(choice.addItem);
                     localStorage.setItem('inventory', JSON.stringify(inv));
                 }
+                //Store the numeric choice (1,2,3) user makes in choiceHistory
+                const choiceHistory = JSON.parse(localStorage.getItem('choiceHistory') || '[]');
+                choiceHistory.push(index + 1);
+                localStorage.setItem('choiceHistory', JSON.stringify(choiceHistory));
                 addHistoryEntry(choice.text);
                 displayScene(paths, choice.next, playerName);
             }
@@ -113,6 +117,7 @@ export function setupRestartButton() {
             //Remove localStorage for player data
             localStorage.removeItem('playerName');
             localStorage.removeItem('inventory');
+            localStorage.removeItem('choiceHistory');
             //Clear history entries
             const historyList = document.querySelector('.history-list');
             if (historyList) historyList.innerHTML = '<h1>History</h1>';
